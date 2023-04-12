@@ -1,9 +1,7 @@
 package com.project.model;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
@@ -12,6 +10,8 @@ import java.util.Set;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Permission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +23,4 @@ public class Permission {
     @ManyToMany(mappedBy = "permissions")
     private Set<Role> roles;
 
-    public Permission(Long id, String name){
-        this.id=id;
-        this.name=name;
-    }
 }

@@ -1,9 +1,7 @@
 package com.project.model;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +11,8 @@ import java.util.Set;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,4 @@ public class Role {
     private Set<User> users;
 
     private Set<Permission> permissions = new HashSet<>();
-
-    public Role(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 }

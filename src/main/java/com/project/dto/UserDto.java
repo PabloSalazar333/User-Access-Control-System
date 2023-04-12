@@ -1,6 +1,8 @@
 package com.project.dto;
 
 import com.project.model.User;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +17,12 @@ import java.util.stream.Collectors;
 @Builder
 public class UserDto {
     private Long id;
+    @NotNull
+    @Size(min = 3, max = 50)
     private String username;
+    @NotNull
     private String email;
+    @NotNull
     private Set<RoleDto> roles;
 
     public static UserDto from(User user){

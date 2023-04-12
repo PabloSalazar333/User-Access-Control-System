@@ -1,6 +1,8 @@
 package com.project.dto;
 
 import com.project.model.Role;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,11 +17,13 @@ import java.util.stream.Collectors;
 @Builder
 public class RoleDto {
     private Long id;
+    @NotNull
+    @Size(min = 3, max = 50)
     private String name;
     private Set<PermissionDto> permissions;
 
     public Role toRole(){
-        return new Role(id, name);
+        return new Role();
     }
 
 
